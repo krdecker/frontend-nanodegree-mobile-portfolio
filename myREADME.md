@@ -30,3 +30,7 @@ install grunt-contrib-uglify
 - images - source locally rather than from remote dbase - change index.html "src="
 3rd testing: - ngronk to PageSpeed Test: 74/100 mobile 84/100 desktop
 
+compress images - grunt-contrib-imagemin
+ pizzeria.jpg - too LARGE for imagemin - throws EPIPE error
+   made a thumb size version with GIMP - put it in img/comp with other compressed images
+

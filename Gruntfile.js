@@ -14,14 +14,53 @@ module.exports = function(grunt) { // Project configuration.
                     src: 'js/perfmatters.js',
                     dest: 'js/perfmatters.min.js'
                 }
+            },
+            imagemin: {
+                // foo: {
+                //     files: [
+                //         {src: 'img/profilepic.jpg', dest: 'img/comp/profilepic.jpg'}
+        //{src: ['src/aa.js', 'src/aaa.js'], dest: 'dest/a.js'},
+        //{src: ['src/aa1.js', 'src/aaa1.js'], dest: 'dest/a1.js'},
+                //     ],
+                // }
+                //src: 'img/profilepic.jpg',
+                //dest: 'img/comp/profilepic.jpg'
+                // files: {                         // Dictionary of files
+                //     //'img/comp/img.png': 'src/img.png', // 'destination': 'source'
+                //     //'img/comp/img.jpg': 'src/img.jpg',
+                //     'img/comp/profilepic.jpg': 'img/profilepic.jpg'
+                // }
+  //          },
+                dynamic: {                         // Another target
+                    files: [{
+                        expand: true,                  // Enable dynamic expansion
+                        cwd: 'img/',                   // Src matches are relative to this path
+                        src: ['*.{png,jpg,gif}'],   // Actual patterns to match
+                        dest: 'img/comp/'                  // Destination path prefix
+                    }]
+                }
+            },
+            cssmin: {
+                toplevel: {
+                    files: [{
+                        expand: true,
+                        cwd: 'css/',
+                        src: ['*.css', '!*.min.css'],
+                        dest: 'css/',
+                        ext: '.min.css'
+                    }]
+                }
             }
         }
     );
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+    // Load the plugins.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  // Default task(s).
-  grunt.registerTask('default', ['uglify']);
+    // Define alias tasks.
+    grunt.registerTask('jsmin', ['uglify:build']);
+
 
 };
