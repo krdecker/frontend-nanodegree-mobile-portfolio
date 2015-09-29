@@ -31,7 +31,7 @@ eliminating call to web fonts:
 3rd testing:    mobile speed increased to 28/100; desktop speed increased to 90/100
 
 - images - source locally rather than from remote dbase - change index.html "src="
-4th testing: 74/100 mobile 84/100 desktop
+4th testing: 74/100 mobile 84/100 desktop -(turns out these were the wrong images - remote images are thumbnails)
 
 compress images - grunt-contrib-imagemin
  pizzeria.jpg - too LARGE for imagemin - throws EPIPE error
@@ -42,3 +42,17 @@ minify css using grunt-contrib-cssmin
 
 add media query for print:
 6th testing - 74/100 mobile 89/100 desktop
+
+add link to stylesheet dynamically after loading body of html
+revert to remotely accessed thumbnail images
+7th testing - 95/100 mobile 95/100 desktop
+
+downloaded remote db thumbs and used imagemin on them
+8th testing - 91/100 mobile 95/100 desktop
+  ??? why is this slower than getting the thumbnail images from the cloud?
+
+60fps section
+
+
+
+
