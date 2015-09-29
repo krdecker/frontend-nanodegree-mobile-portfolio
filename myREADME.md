@@ -27,10 +27,18 @@ install grunt-contrib-uglify
 - used grunt uglify to minimize 'js/perfmatters.js' into 'js/perfmatters.min.js'; changed 'index.html' to use the minimized file
 2nd testing: - ngronk to PageSpeed Test: 27/100 mobile 89/100 desktop
 
+eliminating call to web fonts:
+3rd testing:    mobile speed increased to 28/100; desktop speed increased to 90/100
+
 - images - source locally rather than from remote dbase - change index.html "src="
-3rd testing: - ngronk to PageSpeed Test: 74/100 mobile 84/100 desktop
+4th testing: 74/100 mobile 84/100 desktop
 
 compress images - grunt-contrib-imagemin
  pizzeria.jpg - too LARGE for imagemin - throws EPIPE error
    made a thumb size version with GIMP - put it in img/comp with other compressed images
 
+minify css using grunt-contrib-cssmin
+5th testing - 75/100 mobile 89/100 desktop
+
+add media query for print:
+6th testing - 74/100 mobile 89/100 desktop
