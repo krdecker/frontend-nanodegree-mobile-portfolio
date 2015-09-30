@@ -1,73 +1,124 @@
-## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+Udacity Front-end PROJECT 4
+===========================
 
-To get started, check out the repository, inspect the code,
+**Website Optimization**
+========================
 
-### Getting started
+To View:
+-------
 
-####Part 1: Optimize PageSpeed Insights score for index.html
+- a1. download zip or clone the repository
+- a2. open the index.html file in your browser
+**OR**
+- b1. navigate in browser to:
+[http://krdecker.github.io/frontend-nanodegree-mobile-portfolio/](http://krdecker.github.io/frontend-nanodegree-mobile-portfolio/)
 
-Some useful tips to help you get started:
 
-1. Check out the repository
-1. To inspect the site on your phone, you can run a local server
 
-  ```bash
-  $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
-  ```
+**Optimizations performed:**
 
-1. Open a browser and visit localhost:8080
-1. Download and install [ngrok](https://ngrok.com/) to make your local server accessible remotely.
+To achieve Pagespeed Insights scores above 90% for both mobile and desktop:
 
-  ``` bash
-  $> cd /path/to/your-project-folder
-  $> ngrok 8080
-  ```
+    - added a media query for print.css
+    - added async attribute for analytics scripts
+    - replaced the call to google webfonts with an inline font definition
+    - compressed images using grunt-contrib-imagemin
+    - compressed javascript using grunt-contrib-uglify
+    - minified css using grunt-contrib-cssmin
 
-1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights! Optional: [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
+To increase frame-rate of scrolling back-ground pizzas to 60fps or better:
 
-Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
+    - reduced the number of pizzas to 24 from 200, as that is all that are visible
+    - re-factored code for calculating positions of pizza images
 
-####Part 2: Optimize Frames per Second in pizza.html
+To lower the re-sizing speed of the fore-ground layer pizza images:
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+    - moved all calculations to the outside of the pizza element size re-assignment loop
+    - re-factored switching code to use storage arrays
 
-You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
-### Optimization Tips and Tricks
-* [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
-* [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
-* [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
-* [Avoiding Rendering Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css.html "render blocking css")
-* [Optimizing JavaScript](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript.html "javascript")
-* [Measuring with Navigation Timing](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp.html "nav timing api"). We didn't cover the Navigation Timing API in the first two lessons but it's an incredibly useful tool for automated page profiling. I highly recommend reading.
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/eliminate-downloads.html">The fewer the downloads, the better</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer.html">Reduce the size of text</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization.html">Optimize images</a>
-* <a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching.html">HTTP caching</a>
 
-### Customization with Bootstrap
-The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework. All custom styles are in `dist/css/portfolio.css` in the portfolio repo.
 
-* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
-* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
 
-### Sample Portfolios
 
-Feeling uninspired by the portfolio? Here's a list of cool portfolios I found after a few minutes of Googling.
 
-* <a href="http://www.reddit.com/r/webdev/comments/280qkr/would_anybody_like_to_post_their_portfolio_site/">A great discussion about portfolios on reddit</a>
-* <a href="http://ianlunn.co.uk/">http://ianlunn.co.uk/</a>
-* <a href="http://www.adhamdannaway.com/portfolio">http://www.adhamdannaway.com/portfolio</a>
-* <a href="http://www.timboelaars.nl/">http://www.timboelaars.nl/</a>
-* <a href="http://futoryan.prosite.com/">http://futoryan.prosite.com/</a>
-* <a href="http://playonpixels.prosite.com/21591/projects">http://playonpixels.prosite.com/21591/projects</a>
-* <a href="http://colintrenter.prosite.com/">http://colintrenter.prosite.com/</a>
-* <a href="http://calebmorris.prosite.com/">http://calebmorris.prosite.com/</a>
-* <a href="http://www.cullywright.com/">http://www.cullywright.com/</a>
-* <a href="http://yourjustlucky.com/">http://yourjustlucky.com/</a>
-* <a href="http://nicoledominguez.com/portfolio/">http://nicoledominguez.com/portfolio/</a>
-* <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
-* <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
+***
+
+***
+
+
+**Steps to Project 4**
+(semi-private log -- most likely tl;dr:-))
+
+
+clone git repo; cd into project folder; run http-server (node.js); in another term-tab run gronk; copy url; paste into PageSpeed Insights for analysis; follow suggestions
+
+initial testing: - ngronk to PageSpeed Test: 28/100 mobile 88/100 desktop
+
+for 60 fps section - nav browser to localhost 8080; go to pizza page; open chrome dev-tools;
+
+Grunt build tool:
+    - update node.js
+    - update npm
+    - create package.json
+    - create Gruntfile.js
+
+install grunt-cli; install grunt;
+
+
+
+_Optimize top-level website: 'index.html'_
+
+install grunt-contrib-uglify
+    - used grunt uglify to minimize 'js/perfmatters.js' into 'js/perfmatters.min.js'; changed 'index.html' to use the minimized file
+2nd testing: - ngronk to PageSpeed Test: 27/100 mobile 89/100 desktop
+
+eliminate call to web fonts:
+3rd testing:    mobile speed increased to 28/100; desktop speed increased to 90/100
+
+- images - source locally rather than from remote dbase - change index.html "src="
+4th testing: 74/100 mobile 84/100 desktop
+(turns out these were the wrong images - remote images are thumbnails - but these images are
+ later compressed for use by the other html pages)
+
+compress images - grunt-contrib-imagemin
+    - pizzeria.jpg - too LARGE for imagemin - throws EPIPE error
+    - made a thumb size version with GIMP - put it in img/comp with other compressed images
+
+minify css using grunt-contrib-cssmin
+5th testing - 75/100 mobile 89/100 desktop
+
+add media query for print:
+6th testing - 74/100 mobile 89/100 desktop
+
+add link to stylesheet dynamically after loading body of html
+    - revert to remotely accessed thumbnail images
+7th testing - 95/100 mobile 95/100 desktop
+
+downloaded remote db thumbs and used imagemin on them
+8th testing - 91/100 mobile 95/100 desktop
+  ??? why is this slower than getting the thumbnail images from the cloud?
+
+
+
+_60fps section_
+
+at line 501: in function 'updatePositions' made two changes:
+    - use the document's 'getElementsByClassName' method to grab the small pizzas,
+    rather than 'querySelectorAll'
+    - changed the position calculation to use a counter variable for the position offset,
+    rather than calculate the offset by applying the modulus function to the loop index
+
+at line 540: in the document object's 'addEventListener' method's callback function
+    - changed the number of small animated pizzas created from 200 to 24, as that is all that are visible on screen.
+
+one Large "Conceited Wormhole" please . . . hahaha
+
+_Pizza Resizing_
+
+- changed all querySelector methods to getElementBy methods
+- in 'changePizzaSizes' moved all calculations and queries outside the loop that assigns
+    new width to the pizza elements
+- re-factor to eliminate function call to 'sizeSwitcher()'
+- complete re-factoring of 'resizePizzas' using arrays to store the three values of sizes
