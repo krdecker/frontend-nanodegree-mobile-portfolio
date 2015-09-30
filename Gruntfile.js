@@ -16,21 +16,6 @@ module.exports = function(grunt) { // Project configuration.
                 }
             },
             imagemin: {
-                // foo: {
-                //     files: [
-                //         {src: 'img/profilepic.jpg', dest: 'img/comp/profilepic.jpg'}
-        //{src: ['src/aa.js', 'src/aaa.js'], dest: 'dest/a.js'},
-        //{src: ['src/aa1.js', 'src/aaa1.js'], dest: 'dest/a1.js'},
-                //     ],
-                // }
-                //src: 'img/profilepic.jpg',
-                //dest: 'img/comp/profilepic.jpg'
-                // files: {                         // Dictionary of files
-                //     //'img/comp/img.png': 'src/img.png', // 'destination': 'source'
-                //     //'img/comp/img.jpg': 'src/img.jpg',
-                //     'img/comp/profilepic.jpg': 'img/profilepic.jpg'
-                // }
-  //          },
                 dynamic: {                         // Another target
                     files: [{
                         expand: true,                  // Enable dynamic expansion

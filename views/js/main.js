@@ -402,95 +402,21 @@ var pizzaElementGenerator = function(i) {
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  // Changes the value for the size of the pizza above the slider
- /* function changeSliderLabel(size) {
-    switch(size) {
-      case "1":
-        document.getElementById("pizzaSize").innerHTML = "Small";
-        return;
-      case "2":
-        document.getElementById("pizzaSize").innerHTML = "Medium";
-        return;
-      case "3":
-        document.getElementById("pizzaSize").innerHTML = "Large";
-        return;
-      default:
-        console.log("bug in changeSliderLabel");
-    }
-  }
+  var pizzasizenames = ["Small","Medium","Large"],
+      psizes = ["25%","33.33%","50%"];
 
-  changeSliderLabel(size);*/
-
-  var pizzasizenames = ["Small","Medium","Large"];
   document.getElementById("pizzaSize").innerHTML = pizzasizenames[size-1];
 
-  // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  /*function determineDx (elem, size) {
-    var sizefactors = [0.25,0.3333,0.5]; // re-factor to eliminate function call to 'sizeSwitcher()'
-    var oldwidth = elem.offsetWidth;
-    console.log("Element width=" , elem.offsetWidth);
-    var windowwidth = document.getElementById("randomPizzas").offsetWidth;
-    console.log("windowwidth=", windowwidth);
-    var oldsize = oldwidth / windowwidth;
-    console.log("oldsize=", oldsize);
-
-    // TODO: change to 3 sizes? no more xl?
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-    }
-
-    var newsize = sizefactors[size-1];//sizeSwitcher(size);
-    console.log("newsize=",newsize);
-
-    var dx = (newsize - oldsize) * windowwidth;
-    console.log("dx=",dx);
-    return dx;
-  }*/
-
-  // Iterates through pizza elements on the page and changes their widths
-
-  //function changePizzaSizes(size) {
-    // take querySelectorAll method out of the loop
-    // TODO - take vars out of loop
-    // TODO - eliminate 'newwidth' variable
-    //var pizzaList = [];
-  var psizes = ["25%","33.33%","50%"];
-
   var pizzaList = document.getElementsByClassName("randomPizzaContainer");
-    //var dx = determineDx(pizzaList[0], size); // same for all
+      // point of interest: initialising this variable to be an empty list, then
+      // re-assigning it, turned out to be much slower than simply assigning it as
+      // a pointer to the list created by the 'getElementByClassName' method
 
-    //console.log("Pizzas=", pizzaList.length);
-    //console.log("Size=", size);
-    //console.log("pizzaList[0].offsetWidth=", pizzaList[0].offsetWidth)
-  var newwidth=psizes[size-1];//(pizzaList[0].offsetWidth + dx) + 'px';
+  var newwidth=psizes[size-1];
 
   for (var i = 0; i < pizzaList.length; i++) {
       pizzaList[i].style.width = newwidth;
-      //console.log("pizzaList[", i,"].style.width=",pizzaList[i].style.width);
   }
-  //}
-  // moved all these calculations and queries outside the loop: (see above)
- /* // Iterates through pizza elements on the page and changes their widths (ORIG)
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
-    }
-  }*/
-
-
-  //changePizzaSizes(size);
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
